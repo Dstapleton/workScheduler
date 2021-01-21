@@ -15,15 +15,27 @@
 }
 section {
     background-color:var(--main--color);
+    font-family: 'Courier New', Courier, monospace;
 }
 .header {
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
-    background-color: var(--secondary--color);
+    background-color:var(--main--highlight);
 }
 .date {
     background-color:var(--primary--color);
+}
+.title {
+    width:70%;
+    background-color: var(--secondary--color);
+}
+.date {
+    width:25%;
+}
+.header,
+.date {
+    height:50px;
 }
 
 /* slots */
@@ -35,29 +47,47 @@ section {
     flex-wrap:wrap;
     justify-content:space-between;
     align-items:center;
-    background-color:var(--main--highlight);
+    background-color:goldenrod;
+    border-radius:20px;
 }
 
 label {
     width:5%;
     flex:0.5;
+    background-color:var(--main--highlight);
 }
 
 .list {
     flex:0.5;
+    border:none;
+    height:50px;
+    padding-left:20px;
+    background-color:var(--secondary--color);
+    color:var(--primary--color);
+
 }
 
-.slot input {
+.slot input[type=text] {
     flex:3;
+    height:50px;
+    vertical-align:middle;
+    padding:10px;
+    outline:none;
+    box-sizing:border-box;
+    border:none;
+    background-color:var(--main--highlight);
 }
 .saveBtn {
     flex:1;
+    background-color:var(--main--highlight);
+    border-radius:10px;
+    margin-left:10px;
 }
 
 .slot label,
-.list,
-.slot input,
 .saveBtn {
-    display:block;text-align:center;
+    text-align:center;
     height:50px;
+    padding-top:15px;
+
 }
