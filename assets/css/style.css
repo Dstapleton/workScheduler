@@ -88,6 +88,6 @@ label {
 .saveBtn {
     text-align:center;
     height:50px;
-    padding-top:15px;
+    line-height:50px;
 
 }
