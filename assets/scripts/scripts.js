@@ -17,28 +17,57 @@ var display_date = document.getElementById("current_date");
 display_date.innerHTML = current_date;
 
 function currentDay() {
-  
-  if (localStorage.schedule) {
-     var stored_date = localStorage.getItem("Schedule");
-     var is_current;
-     if (stored_date === currentDay){
+  var is_current;
+  if (localStorage.Date) {
+     var stored_date = localStorage.getItem("Date");
+   }
+   else {
+      setDate();
+   }
+   if (stored_date === current_date){
         is_current = true;
-     }
-     else{
-        is_current = false;
-     }
-  }
-  return is_current;
+   }
+   else{
+      is_current = false;
+   }
+   return is_current;
 }
 
 function setDate() {
-   //
-   if (current_hour < 6){
-      localStorage.setItem("Schedule",currentDay);
+   // first check
+   if (!localStorage.Date){
+      localStorage.setItem("Date",current_date);
+   } // clear local storage and set current date
+   else if (!currentDay()) {
+      localStorage.Date = current_date;
    }
-
 }
-  
+function loadSchedule () {
+   var time_slots = document.querySelectorAll("label");
+   if (currentDay()){
+    for (var i = 0; i <= time_slots.length - 1; i++) {
+       var index = time_slots[i].nextElementSibling.nextElementSibling.nextElementSibling.id;
+       var load_select = time_slots[i].nextElementSibling;
+       var load_input = time_slots[i].nextElementSibling.nextElementSibling;
+       var avalible = localStorage.getItem("time_slot"+index);
+       //console.log(avalible);
+       if (avalible) {
+         load_input.value = localStorage.getItem("time_input"+index);
+         load_select.value = localStorage.getItem("time_selection"+index);
+         //console.log(index);
+       }
+       else {
+          continue;
+       }
+       
+    }
+    
+    
+   }
+   else {
+      // do noting
+   }
+}
 
 var checkSchedule = function (hour) {
   var current_hr = parseInt(hour);
@@ -48,38 +77,32 @@ var checkSchedule = function (hour) {
 
       var title_Ele = parseInt(element.title);
       
-      if (current_hr >= title_Ele) {
-         //console.dir(element.parentElement.id);
+      if (current_hr >= title_Ele && current_hour < 17) {
          element.parentElement.style.backgroundColor = "red";
-         //console.log(element.title);
       }
-      else if (current_hr +3 >= title_Ele){
+      else if (current_hr +3 >= title_Ele && current_hour < 17){
          element.parentElement.style.backgroundColor = "yellow";
-         //console.log(element.title);
       }
       else {
          element.parentElement.style.backgroundColor = "green";
-         console.log(element.title);
       }
       
    });
 }
-checkSchedule(current_hour);
 
 var saveInput = function (event) {
-   console.dir(event.currentTarget);
    var time_slot = event.currentTarget.id;
    var time_selection = event.currentTarget.previousElementSibling.previousElementSibling.value;
    var time_input = event.currentTarget.previousElementSibling.value
-   // set schedule from local storage
-   // if no local storage set to local storage
    
+   // individualize user input
+   var _id = time_slot.toString();
+   
+   localStorage.setItem("time_slot"+ _id , time_slot);
+   localStorage.setItem("time_selection" + _id, time_selection);
+   localStorage.setItem("time_input" + _id, time_input );
+   console.log(_id);
 
-   localStorage.setItem(time_slot, time_slot);
-   localStorage.setItem("time_selection", time_selection);
-   localStorage.setItem("time_input", time_input );
-
-   console.dir(time_slot +" "+ time_selection + " " + time_input);
 }
 
 var setSchedule = function () {
@@ -91,4 +114,14 @@ var setSchedule = function () {
    }
 }
 
+// saves the current day 
+setDate()
+
+// check for schedule
+loadSchedule()
+
+// saves input data
 setSchedule();
+
+//set the ergency of schedule
+checkSchedule(current_hour);
