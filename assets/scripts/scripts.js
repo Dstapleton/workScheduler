@@ -59,10 +59,7 @@ function loadSchedule () {
        else {
           continue;
        }
-       
     }
-    
-    
    }
    else {
       // do noting
@@ -113,6 +110,8 @@ var setSchedule = function () {
        })
    }
 }
+console.log(document.styleSheets);
+console.dir(document.styleSheets[0].cssRules[1].cssText);
 
 // saves the current day 
 setDate()

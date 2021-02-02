@@ -14,6 +14,7 @@
     --upcoming--color:green;
 }
 section {
+    padding:5px;
     background-color:var(--main--color);
     font-family: 'Courier New', Courier, monospace;
 }
@@ -24,11 +25,13 @@ section {
     background-color:var(--main--highlight);
 }
 .date {
-    background-color:var(--primary--color);
+    color:var(--primary--color);
+    background-color:var(--secondary--color);
 }
 .title {
     width:70%;
-    background-color: var(--secondary--color);
+    color:var(--primary--highlight);
+    background-color: var(--primary--color);
 }
 .date {
     width:25%;
@@ -78,7 +81,7 @@ label {
     background-color:var(--main--highlight);
 }
 .saveBtn {
-    flex:1;
+    flex:0.5;
     background-color:var(--main--highlight);
     border-radius:10px;
     margin-left:10px;
@@ -90,4 +93,8 @@ label {
     height:50px;
     line-height:50px;
 
+}
+.foot {
+    height:10vh;
+    background-color:var(--secondary--color);
 }
