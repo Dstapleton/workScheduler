@@ -2,6 +2,7 @@ var btn = document.getElementsByClassName("saveBtn");
 var _date = new Date();
 var current_date = _date.toDateString();
 var current_hour = _date.getHours();
+var endTime = 17;
 
 //set current date
 var display_date = document.getElementById("current_date");
@@ -78,6 +79,18 @@ var checkSchedule = function (hour) {
    });
 }
 
+var upDateSchedule = function () {
+   
+   if (current_hour < endTime){
+      setInterval(()=>{
+         checkSchedule(current_hour);
+      },1800000);
+   }
+   else {
+      clearInterval(upDateSchedule);
+   }
+}
+
 var saveInput = function (event) {
    var time_slot = event.currentTarget.id;
    var time_selection = event.currentTarget.previousElementSibling.previousElementSibling.value;
@@ -110,6 +123,9 @@ setSchedule();
 
 //set the ergency of schedule
 checkSchedule(current_hour);
+
+// refresh schedule every 30 minuts
+upDateSchedule();
 
 document.querySelector(".foot").addEventListener("click", () => {
    localStorage.clear();
