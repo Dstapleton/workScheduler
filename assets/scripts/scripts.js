@@ -1,12 +1,3 @@
-// get user input 
-// check current time to slot time
-// if the time is up within the hour backgroung caution bg color
-// if its an more that 4hrs away green
-// if hour has passed orange color
-
-// if the time is up comming or close store input
-// if the day is new delete local storage
-
 var btn = document.getElementsByClassName("saveBtn");
 var _date = new Date();
 var current_date = _date.toDateString();
@@ -50,11 +41,11 @@ function loadSchedule () {
        var load_select = time_slots[i].nextElementSibling;
        var load_input = time_slots[i].nextElementSibling.nextElementSibling;
        var avalible = localStorage.getItem("time_slot"+index);
-       //console.log(avalible);
+
        if (avalible) {
          load_input.value = localStorage.getItem("time_input"+index);
          load_select.value = localStorage.getItem("time_selection"+index);
-         //console.log(index);
+         
        }
        else {
           continue;
@@ -98,8 +89,6 @@ var saveInput = function (event) {
    localStorage.setItem("time_slot"+ _id , time_slot);
    localStorage.setItem("time_selection" + _id, time_selection);
    localStorage.setItem("time_input" + _id, time_input );
-   console.log(_id);
-
 }
 
 var setSchedule = function () {
@@ -110,9 +99,6 @@ var setSchedule = function () {
        })
    }
 }
-console.log(document.styleSheets);
-console.dir(document.styleSheets[0].cssRules[1].cssText);
-
 // saves the current day 
 setDate()
 
@@ -124,3 +110,7 @@ setSchedule();
 
 //set the ergency of schedule
 checkSchedule(current_hour);
+
+document.querySelector(".foot").addEventListener("click", () => {
+   localStorage.clear();
+});
