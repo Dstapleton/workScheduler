@@ -8,5 +8,5 @@
 * The schedule updates every 30 minutes if left open
 * persists if the browser is closed then reopen
 ---
-![Day Schedule](./assets/images/daysplanner.png)
+![Day Schedule](./assets/images/dayplanner.png)
 ---
