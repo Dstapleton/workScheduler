@@ -1,7 +1,7 @@
 var btn = document.getElementsByClassName("saveBtn");
 var _date = new Date();
 var current_date = _date.toDateString();
-var current_hour = _date.getHours();
+var current_hour =11;
 var endTime = 17;
 
 //set current date
