@@ -4,25 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Work Schedule</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Day Schedule</title>
 </head>
 <body>
-    <script src="./assets/scripts/scripts.js"></script>
+    <header>
+        <div class="title">
+            <h1>Day Planner</h1>
+            <?xml version="1.0" encoding="iso-8859-1"?>
+            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="4.5 1.5 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <g>
+                <g>
+                    <path d="M336,32h-34.752C294.656,13.376,276.864,0,256,0s-38.656,13.376-45.28,32H176c-8.832,0-16,7.168-16,16v64
+                        c0,8.832,7.168,16,16,16h160c8.832,0,16-7.168,16-16V48C352,39.168,344.832,32,336,32z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <path d="M416,64h-32v48c0,26.464-21.536,48-48,48H176c-26.464,0-48-21.536-48-48V64H96c-17.632,0-32,14.368-32,32v384
+                        c0,17.952,14.048,32,32,32h320c17.952,0,32-14.048,32-32V96C448,78.048,433.952,64,416,64z M251.328,347.328l-64,64
+                        C184.192,414.432,180.096,416,176,416s-8.192-1.568-11.328-4.672l-32-32c-6.24-6.24-6.24-16.384,0-22.624s16.384-6.24,22.624,0
+                        L176,377.376l52.672-52.672c6.24-6.24,16.384-6.24,22.624,0S257.568,341.056,251.328,347.328z M251.328,219.328l-64,64
+                        C184.192,286.432,180.096,288,176,288s-8.192-1.568-11.328-4.672l-32-32c-6.24-6.24-6.24-16.384,0-22.624s16.384-6.24,22.624,0
+                        L176,249.376l52.672-52.672c6.24-6.24,16.384-6.24,22.624,0C257.536,202.944,257.568,213.056,251.328,219.328z M368,384h-64
+                        c-8.832,0-16-7.168-16-16c0-8.832,7.168-16,16-16h64c8.832,0,16,7.168,16,16C384,376.832,376.832,384,368,384z M368,256h-64
+                        c-8.832,0-16-7.168-16-16c0-8.832,7.168-16,16-16h64c8.832,0,16,7.168,16,16C384,248.832,376.832,256,368,256z"/>
+                </g>
+            </g>
+            </svg>
+        </div>
+        <div class="date">
+            <h2 id="current_date">current date</h2>
+        </div>
+    </div>
+    </header>
     <main>
-        <section>
-            <div class="header">
-                <div class="tittle">
-                    <h1>Schedule Planner</h1>
+        <section class="hero">
+            <div class="legend">
+                <div class="red">
+                    <h2>Current events</h2>
+                    <svg  width= "200" height= "150">
+                        <rect x="50" y="20" rx="20" ry="20" width="100" height="100"
+                        style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+                    </svg>
                 </div>
-                <div class="date">
-                    <h2>current date</h2>
+                <div class="yellow">
+                    <h2>Upcoming events</h2>
+                    <svg width= "220" height= "150">
+                        <rect x="50" y="20" rx="20" ry="20" width="100" height="100"
+                        style="fill:yellow;stroke:black;stroke-width:5;opacity:0.5" />
+                    </svg>
+                </div>
+                <div class="green">
+                    <h2>Future events</h2>
+                    <svg width= "220" height= "150" viewport="4.5 1.5 800 600">
+                        <rect x="50" y="20" rx="20" ry="20" width="100" height="100"
+                        style="fill:green;stroke:black;stroke-width:5;opacity:0.5" />
+                    </svg>
                 </div>
             </div>
+            <img src="./assets/images/backdrop.png" alt="">
+        </section>
+        <section>
             <div class="body">
                 <!-- 9am -->
-                <div class="slot">
-                    <label for="time">9am</label>
+                <div id="9am" class="slot">
+                    <label title="9" for="time">9am</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -33,16 +85,17 @@
                         <option value="schedule">Schedule</option>
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
-                    <input type="text">
-                    <div class="saveBtn">
-                        <h3>Save</h3>
+                    <input type="text" value=""/>
+                    <div id="9" class="saveBtn">
+                       <h3>Save</h3>
                     </div>
                 </div>
 
                <!-- 10am -->
-                <div class="slot">
-                    <label for="time">10am</label>
+                <div id="10am" class="slot">
+                    <label title="10" for="time">10am</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -53,16 +106,17 @@
                         <option value="schedule">Schedule</option>
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
-                    <input type="text">
-                    <div class="saveBtn">
+                    <input type="text" id>
+                    <div id="10" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 11am -->
-                <div class="slot">
-                    <label for="time">11am</label>
+                <div id="11am" class="slot">
+                    <label title="11" for="time">11am</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -74,15 +128,16 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="11" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 12noon -->
-                <div class="slot">
-                    <label for="time">12noon</label>
+                <div id="12noon" class="slot">
+                    <label title="12" for="time">12noon</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -94,15 +149,16 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="12" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 1pm -->
-                <div class="slot">
-                    <label for="time">1pm</label>
+                <div id="1pm" class="slot">
+                    <label title="13" for="time">1pm</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -114,15 +170,16 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="1" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 2pm -->
-                <div class="slot">
-                    <label for="time">2pm</label>
+                <div id="2pm" class="slot">
+                    <label title="14" for="time">2pm</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -134,15 +191,16 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="2" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 3pm -->
-                <div class="slot">
-                    <label for="time">3pm</label>
+                <div id="3pm" class="slot">
+                    <label title="15" for="time">3pm</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -154,15 +212,16 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="3" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 4pm -->
-                <div class="slot">
-                    <label for="time">4pm</label>
+                <div id="4pm" class="slot">
+                    <label title="16" for="time">4pm</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -174,15 +233,16 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="4" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
 
                 <!-- 5pm -->
-                <div class="slot">
-                    <label for="time">5pm</label>
+                <div id="5pm" class="slot">
+                    <label title="17" for="time">5pm</label>
                     <select name="slection" id="list" class="list">
+                        <option value="defalt">Select:</option>
                         <option value="chore">Chore</option>
                         <option value="meeting">Meeting</option>
                         <option value="check">Check</option>
@@ -194,12 +254,40 @@
                         <option value="miscellaneous">Miscelaneous</option>
                     </select>
                     <input type="text">
-                    <div class="saveBtn">
+                    <div id="5" class="saveBtn">
                         <h3>Save</h3>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    <footer>
+        <div class="foot">
+            <svg id="Layer_1" enable-background="new 4.5 1.5 512 512" height="512" viewBox="4.5 1.5 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path d="m424 64h-88v-16c0-26.51-21.49-48-48-48h-64c-26.51 0-48 21.49-48 48v16h-88c-22.091 0-40 17.909-40 40v32c0 8.837 7.163 16 16 16h384c8.837 0 16-7.163 16-16v-32c0-22.091-17.909-40-40-40zm-216-16c0-8.82 7.18-16 16-16h64c8.82 0 16 7.18 16 16v16h-96z"/>
+                    <path d="m78.364 184c-2.855 0-5.13 2.386-4.994 5.238l13.2 277.042c1.22 25.64 22.28 45.72 47.94 45.72h242.98c25.66 0 46.72-20.08 47.94-45.72l13.2-277.042c.136-2.852-2.139-5.238-4.994-5.238zm241.636 40c0-8.84 7.16-16 16-16s16 7.16 16 16v208c0 8.84-7.16 16-16 16s-16-7.16-16-16zm-80 0c0-8.84 7.16-16 16-16s16 7.16 16 16v208c0 8.84-7.16 16-16 16s-16-7.16-16-16zm-80 0c0-8.84 7.16-16 16-16s16 7.16 16 16v208c0 8.84-7.16 16-16 16s-16-7.16-16-16z"/>
+                </g>
+            </svg>
+            <h3>Clear Schedule</h3>
+            <div class="links">
+                <h4 class="tag">Design by DS</h4>
+                <h4>Icons made by</h4>
+                <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">
+                    bqlqn
+                </a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                    www.flaticon.com
+                </a>
+                <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">
+                    Pixel perfect
+                </a> 
+                    from 
+                <a href="https://www.flaticon.com/" title="Flaticon">
+                    www.flaticon.com
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="./assets/scripts/scripts.js"></script>
 </body>
 </html>
