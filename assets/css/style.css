@@ -60,25 +60,23 @@ section {
     align-items:center;
     width:100%;
     height:100%;
-    background-color:#52fff648;
+    background-color:#22201faf;
     backdrop-filter:blur(5px);
     position:absolute;
     z-index:1;
 }
 .hero img {
-
-    width:102%;
+    width:100%;
     height:100%;
 }
 .legend div > h2 {
     text-align:center;
     font-size:1.3rem;
-    color:var(--main--color);
+    color:var(--main--highlight);
 }
 .red svg,
 .yellow svg,
 .green svg {
-    
     width:100%;
     height:100%;
     flex:1;
